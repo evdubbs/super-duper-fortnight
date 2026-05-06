@@ -1,73 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My Website</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Evan Dubey — Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="stars"></div>
-    
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">My Website</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Hello, Welcome! 👋</h1>
-            <p>I am Evan Dubey from grade 10 and I am thrilled to learn how to make edits in my website!!!!!!!!</p>
-            <button class="cta-button" onclick="scrollToSection('about')">Learn More</button>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About This Website</h2>
-            <p>This is your new website! It's built with HTML, CSS, and JavaScript. You can customize everything - colors, text, images, and more. Welcome to the world of web development! 🚀</p>
-            
-            <div class="features">
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Customizable Design</h3>
-                    <p>Easy to change colors, fonts, and layout</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Mobile Friendly</h3>
-                    <p>Works great on phones and computers</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Fast & Modern</h3>
-                    <p>Built with current web technologies</p>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <div class="avatar">ED</div>
+                <div class="brand-text">
+                    <h1 class="brand-name">Evan Dubey</h1>
+                    <p class="brand-sub">Student • Developer • Designer</p>
                 </div>
             </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
         </div>
-    </section>
+    </header>
 
-    <section id="contact" class="contact">
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-left">
+                    <p class="eyebrow">Hi — Welcome to my site</p>
+                    <h2 class="hero-title">I'm <span class="accent">Evan Dubey</span></h2>
+                    <p class="hero-sub">Grade 10 student building modern websites and projects. I learn by building — small experiments and real projects help me improve.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('projects')">View Projects</button>
+                        <a class="btn btn-ghost" href="#" onclick="downloadResume()">Download Resume</a>
+                    </div>
+                </div>
+                <aside class="hero-card">
+                    <div class="profile-card">
+                        <div class="profile-avatar">ED</div>
+                        <h3 class="profile-name">Evan Dubey</h3>
+                        <p class="profile-role">Grade 10 • Student Developer</p>
+                        <ul class="profile-meta">
+                            <li>📍 Location: Your City</li>
+                            <li>✉️ Email: <a href="mailto:evandubey@example.com">evandubey@example.com</a></li>
+                        </ul>
+                        <div class="socials">
+                            <a href="https://github.com/evdubbs" target="_blank" rel="noreferrer">GitHub</a>
+                            <a href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>I'm a Grade 10 student who loves web development, game jams, and creative coding. I build small projects to learn new skills and have fun experimenting with UI and interactivity.</p>
+                <div class="skills">
+                    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Git</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Projects</h2>
+                    <p>Small projects I made while learning web development.</p>
+                </div>
+                <div class="project-grid">
+                    <article class="project-card">
+                        <h3>Project One</h3>
+                        <p>A demo project showcasing HTML/CSS skills.</p>
+                        <div class="card-actions"><a class="btn small" href="#">View</a><a class="btn small" href="#">Code</a></div>
+                    </article>
+                    <article class="project-card">
+                        <h3>Project Two</h3>
+                        <p>A JavaScript project that does something cool.</p>
+                        <div class="card-actions"><a class="btn small" href="#">View</a><a class="btn small" href="#">Code</a></div>
+                    </article>
+                    <article class="project-card">
+                        <h3>Project Three</h3>
+                        <p>A small game or interactive experiment.</p>
+                        <div class="card-actions"><a class="btn small" href="#">View</a><a class="btn small" href="#">Code</a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact</h2>
+                <p>If you'd like to reach me, send an email or use the contact form below.</p>
+                <form id="contact-form" class="contact-form">
+                    <label>Name<input type="text" name="name" placeholder="Your name" required></label>
+                    <label>Email<input type="email" name="email" placeholder="you@example.com" required></label>
+                    <label>Message<textarea name="message" placeholder="Say hi..." rows="5" required></textarea></label>
+                    <div class="form-actions"><button class="btn btn-primary" type="submit">Send Message</button></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
         <div class="container">
-            <h2>Get In Touch</h2>
-            <p>Ready to update your website? You can:</p>
-            <ul class="contact-list">
-                <li>📝 Edit the text and colors in the code</li>
-                <li>🖼️ Add your own images and content</li>
-                <li>🌐 Deploy it online with GitHub Pages</li>
-                <li>🚀 Keep building and learning!</li>
-            </ul>
+            <p>&copy; 2026 Evan Dubey — Built with ❤️ & GitHub Pages</p>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 My Website | Made with ❤️ and GitHub</p>
     </footer>
 
     <script src="script.js"></script>

@@ -1,51 +1,67 @@
-// Smooth scroll function
-function scrollToSection(sectionId) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-    }
+// Smooth scrolling helper
+function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
 }
 
-// Add scroll event for navbar styling
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
-    } else {
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+// Theme toggle (persisted in localStorage)
+const themeToggle = document.getElementById('theme-toggle');
+function setTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('theme', t);
+    if (themeToggle) themeToggle.textContent = t === 'dark' ? '☀️' : '🌙';
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const saved = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    setTheme(saved);
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+            const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            setTheme(next);
+        });
     }
-});
 
-// Active link highlighting
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        scrollToSection(targetId);
+    // Smooth-scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#') && href.length > 1) {
+                e.preventDefault();
+                const id = href.slice(1);
+                scrollToSection(id);
+            }
+        });
     });
+
+    // Contact form: open mail client with prefilled message
+    const form = document.getElementById('contact-form');
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = (this.name && this.name.value) || '';
+            const email = (this.email && this.email.value) || '';
+            const message = (this.message && this.message.value) || '';
+            const subject = encodeURIComponent('Website message from ' + name);
+            const body = encodeURIComponent(message + '\n\nFrom: ' + name + ' <' + email + '>');
+            window.location.href = 'mailto:evandubey@example.com?subject=' + subject + '&body=' + body;
+        });
+    }
+
+    // Reveal sections on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('in-view');
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('section').forEach(s => observer.observe(s));
 });
 
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
+function downloadResume() {
+    // placeholder resume link — replace with resume.pdf in repo
+    window.open('resume.pdf', '_blank');
+}
 
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe all feature cards
-document.querySelectorAll('.feature-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(card);
-});
-
-console.log('Welcome to your website! 🚀 Feel free to customize this code.');
+console.log('Site script loaded — enjoy editing!');

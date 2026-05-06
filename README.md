@@ -1,74 +1,53 @@
-# Welcome to Your Website! 🎉
+# Evan Dubey — Personal Website
 
-Congratulations! You now have a working website. Here's what you got:
+This repository holds a simple, modern personal website for Evan Dubey. It's built with plain HTML, CSS, and JavaScript so you can edit and extend it easily.
 
-## 📁 What's in This Folder?
+## 📁 Files you care about
 
-- **index.html** - This is your main website (the page people see)
-- **style.css** - This controls how it looks (colors, fonts, spacing)
-- **script.js** - This adds interactive features
-- **README.md** - This file, your guide!
+- `index.html` — main site with Home, About, Projects, Contact
+- `style.css` — styles and responsive layout
+- `script.js` — theme toggle, smooth scroll, contact handler
 
-## 🚀 How to See Your Website
+## 🚀 Quick preview
 
-### Option 1: View It Right Now (Easiest!)
-1. Open `index.html` in VS Code
-2. Right-click and select "Open with Live Server" (if you have that extension)
-3. Your website will open in your browser!
+Open `index.html` in VS Code and use the Live Server extension to preview locally, or view the site after you push to GitHub Pages.
 
-### Option 2: Enable GitHub Pages (Show It to the World!)
-1. Go to your repository settings on GitHub
-2. Find "Pages" in the left menu
-3. Under "Source", select "main" branch
-4. Click Save
-5. Your website will be live online in a few minutes!
+### Run locally in Codespaces or VS Code
 
-## 🎨 How to Customize Your Website
+1. Open this folder in VS Code
+2. Install the **Live Server** extension (optional)
+3. Open `index.html` and choose **Open with Live Server** or just open the file in a browser
 
-### Change the Text
-Open `index.html` and find the text. For example:
-```html
-<h1>Hello, Welcome! 👋</h1>
-```
-Change "Hello, Welcome!" to anything you want!
+## ✏️ Personalize the site
 
-### Change the Colors
-Open `style.css` and look for these lines at the top:
-```css
---primary-color: #6366f1;      /* Change this blue */
---secondary-color: #ec4899;    /* Change this pink */
-```
-Use a color picker tool to find colors you like!
+- Update your name, role, and bio in `index.html` (look for `Evan Dubey` and `Grade 10`)
+- Change the email in the profile card and in `script.js` (mailto URL in the contact form handler)
+- Replace social links in `index.html` with your profiles
+- To add a resume: put `resume.pdf` in the repository root and the "Download Resume" button will open it
 
-### Add Your Own Pictures
-1. Put your image files in this folder
-2. In `index.html`, change:
-```html
-<img src="your-image-name.jpg" alt="Description">
+## 📤 Commit & deploy (push to GitHub)
+
+Use these commands in the terminal if you're comfortable with git:
+
+```bash
+git add .
+git commit -m "Personalize site: update homepage and styles"
+git pull --rebase origin main    # integrate remote changes first
+git push origin main
 ```
 
-### Add More Sections
-Copy one section and modify it! They all follow the same pattern.
+After pushing, enable GitHub Pages in the repository settings (Source: `main` / root) if not already enabled. It may take a minute to publish.
 
-## 📚 Learning Resources
+## 🛠️ Tips & next steps
 
-- **HTML**: Learn at [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/HTML)
-- **CSS**: Learn at [w3schools](https://www.w3schools.com/css/)
-- **JavaScript**: Learn at [JavaScript.info](https://javascript.info/)
+- Add real project links in the Projects section (replace the placeholder cards)
+- Swap the avatar with an image: place your image in the repo and replace the `profile-avatar` element with an `<img>` tag
+- Want forms to actually send messages? Use a simple service like Formspree or Netlify Forms (requires extra setup)
 
-## 💡 Quick Tips
+If you want, I can:
 
-1. **Save your changes** - Always save files after editing (Ctrl+S or Cmd+S)
-2. **Refresh your browser** - After saving, refresh to see your changes
-3. **Check for errors** - Open the browser's Developer Tools (F12) to see if anything breaks
-4. **Have fun!** - Don't be afraid to experiment and break things - that's how you learn!
+- Add your real social links and email now
+- Add real project entries with links to your repositories
+- Deploy and verify the live site for you
 
-## 🤔 Questions?
-
-- **Want to add more pages?** Create new `.html` files
-- **Want to add a form?** You'll need a backend service (more advanced)
-- **Want to host your domain?** Look into domain registrars like Namecheap or Google Domains
-
----
-
-**You're now a web developer! 🎊** Keep learning and keep building!
+Happy building — tell me which parts you want changed next!
