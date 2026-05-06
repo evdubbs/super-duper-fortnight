@@ -1,267 +1,122 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="retro">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Evan Dubey — student developer, writer, and builder of small, sharp projects." />
-  <meta name="theme-color" content="#0b1020" />
-  <title>Evan Dubey — Portfolio</title>
+  <meta name="description" content="EVAN.EXE — a retro terminal-style website." />
+  <title>EVAN.EXE</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="bg-grid"></div>
-  <div class="bg-glow bg-glow-1"></div>
-  <div class="bg-glow bg-glow-2"></div>
+  <div class="scanlines"></div>
+  <div class="noise"></div>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#home" aria-label="Go to home">
-        <span class="brand-mark">ED</span>
-        <span class="brand-text">
-          <strong>Evan Dubey</strong>
-          <span>student developer</span>
-        </span>
-      </a>
+  <div id="boot-screen" class="boot-screen">
+    <div class="boot-window">
+      <div class="boot-titlebar">
+        <span>EVAN.EXE</span>
+        <span id="boot-status">POWER ON</span>
+      </div>
+      <pre id="boot-text" class="boot-text"></pre>
+      <div class="boot-footer">
+        <span>Loading retro interface</span>
+        <span>Sound activates after first interaction</span>
+      </div>
+    </div>
+  </div>
 
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#writing">Writing</a>
-        <a href="#contact">Contact</a>
-      </nav>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <span class="brand-mark">E</span>
+        <div>
+          <div class="brand-title">EVAN.EXE</div>
+          <div class="brand-subtitle">retro terminal website</div>
+        </div>
+      </div>
 
-      <button id="theme-toggle" class="icon-button" type="button" aria-label="Toggle theme">
-        <span class="icon-light">☼</span>
-        <span class="icon-dark">◐</span>
-      </button>
+      <div class="topbar-status">
+        <span class="status-pill">LOCAL MODE</span>
+        <span class="status-pill">BUILD: 1005</span>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section id="home" class="hero section">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Portfolio / HTML / CSS / JavaScript / Python</p>
-          <h1>
-            Building sharp, clean, and slightly dangerous-looking stuff.
-          </h1>
-          <p class="lead">
-            I’m Evan Dubey, a student developer who likes making websites that look like they know what they are doing.
-            I care about clean design, fast code, and projects with actual personality.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">See projects</a>
-            <a class="btn btn-secondary" href="#contact">Contact me</a>
-          </div>
-
-          <div class="hero-stats">
-            <div class="stat-card">
-              <span class="stat-value">10+</span>
-              <span class="stat-label">mini builds</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-value">4</span>
-              <span class="stat-label">languages touched</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-value">∞</span>
-              <span class="stat-label">things to fix</span>
-            </div>
-          </div>
+  <main id="app" class="app hidden">
+    <section class="hero container">
+      <div class="hero-panel">
+        <div class="screen-header">
+          <span>TERMINAL VIEW</span>
+          <span id="clock">00:00:00</span>
         </div>
 
-        <aside class="hero-panel reveal">
-          <div class="panel-card terminal-card">
-            <div class="terminal-bar">
-              <span></span><span></span><span></span>
-            </div>
-            <pre class="terminal-text"><code>evan@portfolio:~$ whoami
-Evan Dubey
-
-evan@portfolio:~$ interests
-web design
-coding
-science
-writing
-
-evan@portfolio:~$ status
-building, learning, iterating</code></pre>
-          </div>
-
-          <div class="panel-card info-card">
-            <h2>Quick profile</h2>
-            <ul>
-              <li><span>Focus</span><strong>Web + tech</strong></li>
-              <li><span>Style</span><strong>Minimal, dark, modern</strong></li>
-              <li><span>Goal</span><strong>Projects that feel real</strong></li>
-            </ul>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="eyebrow">About</p>
-          <h2>Not just a pretty homepage.</h2>
-          <p>
-            I build because I want to understand how things work. I like the mix of structure and creativity:
-            layout, typography, motion, logic, and making a page feel less dead.
-          </p>
-        </div>
-
-        <div class="about-grid">
-          <article class="info-box reveal">
-            <h3>What I do</h3>
-            <p>Design and build small websites, experiments, and tools. I care about clean structure more than random flashy junk.</p>
-          </article>
-          <article class="info-box reveal">
-            <h3>What I’m learning</h3>
-            <p>Better UI design, JavaScript, responsive layouts, and writing code that does not suck under pressure.</p>
-          </article>
-          <article class="info-box reveal">
-            <h3>What I like</h3>
-            <p>Science, tech, robotics, strong visuals, good writing, and projects that actually have some teeth.</p>
-          </article>
-        </div>
-
-        <div class="skills reveal">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-          <span>Python</span>
-          <span>Git</span>
-          <span>Responsive Design</span>
-          <span>Writing</span>
+        <div id="terminal" class="terminal" aria-live="polite">
+          <div class="terminal-line muted">Boot complete. Type <span class="accent">help</span> in the assistant box.</div>
         </div>
       </div>
+
+      <aside class="info-stack">
+        <div class="panel">
+          <h2>About</h2>
+          <p>This is Evan's website. He used ChatGPT for the code. That is the whole situation.</p>
+        </div>
+
+        <div class="panel">
+          <h2>Command deck</h2>
+          <div id="command-list" class="command-list"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Quick status</h2>
+          <ul class="status-list">
+            <li><span>mode</span><strong>retro</strong></li>
+            <li><span>vibe</span><strong>terminal</strong></li>
+            <li><span>style</span><strong>old-school</strong></li>
+            <li><span>humor</span><strong>dry</strong></li>
+          </ul>
+        </div>
+      </aside>
     </section>
 
-    <section id="projects" class="section">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Projects</p>
-          <h2>Stuff worth opening.</h2>
-          <p>
-            Replace these with your real work. No fake filler. Even small projects look strong when they are presented properly.
-          </p>
-        </div>
-
-        <div class="projects-grid">
-          <article class="project-card reveal">
-            <div class="project-top">
-              <span class="project-tag">Web App</span>
-              <span class="project-year">2026</span>
-            </div>
-            <h3>Project One</h3>
-            <p>A clean interactive project with a focus on layout, logic, and usable UI.</p>
-            <div class="project-links">
-              <a href="#" target="_blank" rel="noreferrer">Live</a>
-              <a href="#" target="_blank" rel="noreferrer">Code</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-top">
-              <span class="project-tag">Experiment</span>
-              <span class="project-year">2026</span>
-            </div>
-            <h3>Project Two</h3>
-            <p>A smaller experimental build that shows off animation, interaction, or some useful functionality.</p>
-            <div class="project-links">
-              <a href="#" target="_blank" rel="noreferrer">Live</a>
-              <a href="#" target="_blank" rel="noreferrer">Code</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-top">
-              <span class="project-tag">Design</span>
-              <span class="project-year">2026</span>
-            </div>
-            <h3>Project Three</h3>
-            <p>A project with stronger visual identity and a more serious structure than the average beginner page.</p>
-            <div class="project-links">
-              <a href="#" target="_blank" rel="noreferrer">Live</a>
-              <a href="#" target="_blank" rel="noreferrer">Code</a>
-            </div>
-          </article>
-        </div>
+    <section class="container lower-grid">
+      <div class="panel wide">
+        <h2>What this does</h2>
+        <p>
+          It is a fake assistant terminal. You type commands, the page reacts, and the result appears on-screen.
+          Old computer energy. No sleek nonsense.
+        </p>
       </div>
-    </section>
 
-    <section id="writing" class="section">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Writing</p>
-          <h2>More than code.</h2>
-          <p>
-            A good portfolio gets stronger when it shows thinking, not just screenshots. Add essays, blog posts, notes, or project breakdowns here.
-          </p>
-        </div>
-
-        <div class="writing-grid">
-          <article class="writing-card reveal">
-            <span class="writing-meta">Article / 2026</span>
-            <h3>How I build better websites</h3>
-            <p>A short post about design choices, mistakes, and what I changed after the first version looked like trash.</p>
-          </article>
-
-          <article class="writing-card reveal">
-            <span class="writing-meta">Notes / 2026</span>
-            <h3>What I learned from a bad first portfolio</h3>
-            <p>Simple reflection. Honest, direct, and useful. That beats pretending the first draft was genius.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container contact-grid">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Contact</p>
-          <h2>Let’s keep it direct.</h2>
-          <p>
-            Put your real email here and this form will open a prefilled message. No fake social clutter needed.
-          </p>
-        </div>
-
-        <form id="contact-form" class="contact-form reveal">
-          <label>
-            Name
-            <input type="text" name="name" placeholder="evan dubey" required />
-          </label>
-
-          <label>
-            Email
-            <input type="email" name="email" placeholder="lol@example.com" required />
-          </label>
-
-          <label class="full">
-            Message
-            <textarea name="message" rows="6" placeholder="Say something useful." required></textarea>
-          </label>
-
-          <div class="form-actions full">
-            <button class="btn btn-primary" type="submit">Open email draft</button>
-          </div>
-        </form>
+      <div class="panel wide">
+        <h2>Tips</h2>
+        <p>
+          Try <span class="accent">help</span>, <span class="accent">about</span>, <span class="accent">status</span>,
+          <span class="accent">roast</span>, <span class="accent">matrix</span>, <span class="accent">lab</span>,
+          <span class="accent">panic</span>, <span class="accent">secret</span>, and <span class="accent">shutdown</span>.
+        </p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2026 Evan Dubey</p>
-      <p>Built with HTML, CSS, JavaScript, and enough stubbornness to matter.</p>
+  <aside class="assistant">
+    <div class="assistant-bar">
+      <span>EVA assistant</span>
+      <span id="sound-state">SND: OFF</span>
     </div>
-  </footer>
+
+    <div class="assistant-body">
+      <div class="assistant-output" id="assistant-output">Type a command.</div>
+      <form id="command-form" class="assistant-form" autocomplete="off">
+        <span class="prompt">&gt;</span>
+        <input id="command-input" type="text" name="command" placeholder="help" aria-label="Command input" />
+        <button type="submit">RUN</button>
+      </form>
+    </div>
+  </aside>
 
   <script src="script.js"></script>
 </body>
