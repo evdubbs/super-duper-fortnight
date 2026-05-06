@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">My Website</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Hello, Welcome! 👋</h1>
+            <p>I'm learning to code and building my first website using GitHub</p>
+            <button class="cta-button" onclick="scrollToSection('about')">Learn More</button>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About This Website</h2>
+            <p>This is your new website! It's built with HTML, CSS, and JavaScript. You can customize everything - colors, text, images, and more. Welcome to the world of web development! 🚀</p>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Customizable Design</h3>
+                    <p>Easy to change colors, fonts, and layout</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Works great on phones and computers</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast & Modern</h3>
+                    <p>Built with current web technologies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>Ready to update your website? You can:</p>
+            <ul class="contact-list">
+                <li>📝 Edit the text and colors in the code</li>
+                <li>🖼️ Add your own images and content</li>
+                <li>🌐 Deploy it online with GitHub Pages</li>
+                <li>🚀 Keep building and learning!</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 My Website | Made with ❤️ and GitHub</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
