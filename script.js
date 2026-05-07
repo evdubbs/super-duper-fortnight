@@ -79,7 +79,13 @@ const commands = {
     "SYSTEM SHUTTING DOWN...",
     "just kidding.",
     "you still have school."
+  ], "error"),
+  explode: () => renderBlock([
+    "BOOM!",
+    "You exploded.",
+    "Congratulations."
   ], "error")
+
 };
 
 const commandMeta = [
@@ -92,6 +98,7 @@ const commandMeta = [
   ["panic", "emergency"],
   ["clear", "wipe screen"],
   ["secret", "hidden"],
+  ["explode", "TOTALLY A REAL COMMAND"]
   ["shutdown", "fake off"]
 ];
 
